@@ -1,0 +1,48 @@
+#navbarNav {
+	justify-content: flex-end;
+
+	div {
+	cursor: pointer;
+	}
+
+	.toggle{
+		line-height:2.5;
+	}
+
+	@media only screen and (max-width : 850px) {
+  		font-size: 0.9rem;
+	}
+}
+
+.navbar-brand {
+	cursor: pointer;
+	height: 50px;
+	padding:0;
+}
+
+.navchange {
+	background: linear-gradient(0deg, rgba(227,241,251,1) 0%, rgba(255,255,255,1) 100%);
+	border-bottom:1px solid rgb(21,94,145);
+}
+
+img {
+	transition: all .5s ease-in-out;
+	
+	&:hover { 
+		transform: scale(1.02); 
+	}
+}
+
+.navdark {
+	background: linear-gradient(0deg, rgba(21,46,70,1) 0%, rgba(7,36,56,1) 100%, rgba(71,87,143,1) 100%);
+	border-bottom:1px solid rgba(121, 131, 155,0.5);
+	box-shadow:0 2px 3px 0 rgba(61, 68, 86,0.7);
+
+	div {
+	color:white;
+	}
+}
+
+.navbar-light .navbar-nav .nav-link {
+	color:black;
+}

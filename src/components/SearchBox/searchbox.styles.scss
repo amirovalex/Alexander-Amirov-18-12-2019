@@ -1,0 +1,71 @@
+.searchbox {
+	text-align:center;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	display:flex;
+	justify-content: space-evenly;
+	align-items: center;
+	width:60%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.searchfield {
+	width:70%;
+	margin-left:5px;
+	margin-right: 5px;
+}
+
+button.searchbutt-light {
+	width:25%;
+	border-radius:5px;
+
+	.MuiButton-label {
+			@media only screen and (max-width : 850px) {
+  font-size: 0.9rem;
+}
+}
+	&:hover {
+	background-color: rgba(82, 145, 210,1);
+}
+}
+
+button.MuiButtonBase-root.searchbutt-dark {
+	width:25%;
+	border-radius:5px;
+	background-color: rgba(21, 35, 65,1);
+	box-shadow:0 2px 3px 0 rgba(61, 68, 86,0.7);
+
+	.MuiButton-label {
+			@media only screen and (max-width : 850px) {
+  font-size: 0.9rem;
+}
+}
+
+	&:hover {
+	background-color: rgba(38, 52, 83,1);
+	}
+}
+
+div label.Mui-focused {
+	color:rgba(21, 35, 65,1)!important;
+}
+
+div.light label.Mui-focused{
+	color:rgba(50, 120, 193,1)!important;
+
+}
+
+div .MuiFilledInput-underline:after{
+	border-bottom-color:rgba(21, 35, 65,1)!important;
+}
+
+div.light .MuiFilledInput-underline:after{
+	border-bottom-color:rgba(50, 120, 193,1)!important;
+}
+
+.searchbox {
+	@media only screen and (max-width : 850px) {
+  		font-size: 0.9rem;
+	}
+}

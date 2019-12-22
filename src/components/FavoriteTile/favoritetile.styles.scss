@@ -1,0 +1,47 @@
+.tile {
+	text-align: center;
+	border:1px solid rgba(21,94,145,0.5);
+	border-radius: 25px;
+	box-shadow: 0 2px 3px 2px rgba(60,109,180,0.5);
+  	background: linear-gradient(90deg, rgba(96,130,179,0.5) 0%, rgba(133,200,203,0.1) 50%, rgba(202,247,242,0.1) 81%);
+  	cursor: pointer;
+  	color:white;
+
+}
+
+.delete-butt {
+	height:40px;
+}
+
+.tiledark {
+	text-align: center;
+	border:1px solid rgba(61, 68, 86,0.5);
+	border-radius: 25px;
+  	cursor: pointer;
+  	color:white;
+	box-shadow:0 2px 3px 0 rgba(61, 68, 86,0.7);
+	background: linear-gradient(90deg, rgba(61, 68, 86,0.5) 0%, rgba(133,200,203,0.1) 50%, rgba(202,247,242,0.1) 81%);
+}
+
+.tile , .tiledark {
+	transition: all 0.1s ease-in-out;
+	
+	&:hover { 
+		transform: scale(1.02); 
+	}
+}
+
+.cityName {
+	font-weight: 600;
+	font-size: 1.3rem;
+	@media only screen and (max-width : 850px) {
+  		font-size: 1.1rem;
+	}
+}
+
+.fav-id {
+	width:10%;
+	border-bottom: 1px solid rgba(61, 68, 86,0.5);
+	margin-right: auto;
+	margin-left: auto;
+}
