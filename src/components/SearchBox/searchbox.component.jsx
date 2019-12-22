@@ -55,12 +55,12 @@ const SearchBox = (props) => {
 
   const { addToast } = useToasts();
 
-  const fetchOnSearch = () => {if(props.search !== "" ){fetch(`http://dataservice.accuweather.com/currentconditions/v1/${props.autocomplete[0].Key}?apikey=${apiKey}`)
+  const fetchOnSearch = () => {if(props.search !== "" ){fetch(`https://dataservice.accuweather.com/currentconditions/v1/${props.autocomplete[0].Key}?apikey=${apiKey}`)
             .then(handleErrors)
             .then(response => response.json().then(arr => props.saveCurrentCity({Weather:arr[0],CityName:props.autocomplete[0].LocalizedName,CityKey:props.autocomplete[0].Key})))
             .catch(error => error ? addToast(error.message, { appearance: 'error' })
                 : addToast('Saved Successfully', { appearance: 'success' }));
-            fetch(`http://dataservice.accuweather.com/forecasts/v1/daily/5day/${props.autocomplete[0].Key}?apikey=${apiKey}${props.measureSystem.celsius === true ? "&metric=true" : ""}`)
+            fetch(`https://dataservice.accuweather.com/forecasts/v1/daily/5day/${props.autocomplete[0].Key}?apikey=${apiKey}${props.measureSystem.celsius === true ? "&metric=true" : ""}`)
             .then(handleErrors)
             .then(response => response.json()
             .then(data => props.getDailyForecast(data))
@@ -69,7 +69,7 @@ const SearchBox = (props) => {
             )} else {return null}}
 
   const fetchTemperature = () => {props.toggleSystem();
-                        fetch(`http://dataservice.accuweather.com/forecasts/v1/daily/5day/${props.currentCity.CityKey}?apikey=${apiKey}${props.measureSystem.celsius !== true ? "&metric=true" : ""}`)
+                        fetch(`https://dataservice.accuweather.com/forecasts/v1/daily/5day/${props.currentCity.CityKey}?apikey=${apiKey}${props.measureSystem.celsius !== true ? "&metric=true" : ""}`)
                         .then(handleErrors)
                         .then(response => response.json()
                         .then(data => props.getDailyForecast(data)))
@@ -110,7 +110,7 @@ const SearchBox = (props) => {
             color="primary"
             fullWidth
             onChange={event => { props.searchCity(event.target.value);
-            					if(event.target.value.length > 0 && !event.target.value.startsWith(" ")) {fetch(`http://dataservice.accuweather.com/locations/v1/cities/autocomplete?apikey=${apiKey}&q=${event.target.value}`)
+            					if(event.target.value.length > 0 && !event.target.value.startsWith(" ")) {fetch(`https://dataservice.accuweather.com/locations/v1/cities/autocomplete?apikey=${apiKey}&q=${event.target.value}`)
                 .then(handleErrors)
 								.then(response => response.json())
                 .then(arr => props.saveAutocomplete(arr))

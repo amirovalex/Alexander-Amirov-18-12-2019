@@ -1,5 +1,6 @@
 import { SEARCH_CITY , SAVE_AUTOCOMPLETE , GET_CURRENT_CITY ,
-		DAILY_FORECAST , FECTH_FAVORITES , CLEAN_FETCH } from '../constants/constants.js';
+		DAILY_FORECAST , FECTH_FAVORITES , CLEAN_FETCH ,
+		DELETE_FETCH_FAVORITE } from '../constants/constants.js';
 
 export const searchCity = name => ({
 	type:SEARCH_CITY,
@@ -28,4 +29,9 @@ export const fetchFavorites = city => ({
 
 export const cleanFetch = () => ({
 	type:CLEAN_FETCH
+})
+
+export const deleteFetchFavorite = city => ({
+	type:DELETE_FETCH_FAVORITE,
+	payload: city
 })

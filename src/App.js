@@ -40,7 +40,7 @@ const mapDispatchToProps = dispatch => ({
 
 class App extends Component {
   componentDidMount(){
-    fetch(`http://dataservice.accuweather.com/currentconditions/v1/215854?apikey=${apiKey}`)
+    fetch(`https://dataservice.accuweather.com/currentconditions/v1/215854?apikey=${apiKey}`)
       .then(handleErrors)
       .then(response => response.json())
       .then(data => {this.props.saveCurrentCity({Weather:data[0]
@@ -50,20 +50,20 @@ class App extends Component {
             :
             null)
           })
-    fetch(`http://dataservice.accuweather.com/forecasts/v1/daily/5day/${this.props.currentCity.CityKey}?apikey=${apiKey}&metric=true`)
+    fetch(`https://dataservice.accuweather.com/forecasts/v1/daily/5day/${this.props.currentCity.CityKey}?apikey=${apiKey}&metric=true`)
         .then(handleErrors)
         .then(res => res.json())
         .then(data2 => this.props.getDailyForecast(data2))
-        .catch(error => console.log(error))
+        .catch(error => console.warn(`ERROR(${error.code}): ${error.message}`))
 
     navigator.geolocation.getCurrentPosition((pos) => {const crd = pos.coords;
       this.props.getLocation(crd);
-      fetch(`http://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey=${apiKey}&q=${crd.latitude}%2C%20${crd.longitude}`)
+      fetch(`https://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey=${apiKey}&q=${crd.latitude}%2C%20${crd.longitude}`)
       .then(respone => respone.json())
-      .then(data => {fetch(`http://dataservice.accuweather.com/currentconditions/v1/${data.Key}?apikey=${apiKey}`)
+      .then(data => {fetch(`https://dataservice.accuweather.com/currentconditions/v1/${data.Key}?apikey=${apiKey}`)
             .then(response2 => response2.json().then(arr => {this.props.saveCurrentCity({Weather:arr[0],CityName:data.LocalizedName,CityKey:data.Key});
                   if (this.props.currentCity.Weather.IsDayTime === false) {this.props.setTheme(false)}}));
-            fetch(`http://dataservice.accuweather.com/forecasts/v1/daily/5day/${data.Key}?apikey=${apiKey}&metric=true`)
+            fetch(`https://dataservice.accuweather.com/forecasts/v1/daily/5day/${data.Key}?apikey=${apiKey}&metric=true`)
             .then(response3 => response3.json().then(data2 => this.props.getDailyForecast(data2)))})
     } , error, options);
   }

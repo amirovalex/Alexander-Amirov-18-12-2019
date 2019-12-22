@@ -13,7 +13,6 @@ const mapDispatchToProps = dispatch => ({
 })
 
 const Navbar = (props) => {
-	console.log(props)
 	return (
 		<nav className={props.theme === true ? "navbar navbar-expand-lg navbar-light bg-light navchange" : "navbar navbar-expand-lg navbar-light bg-light navdark"}>
 		  <img alt="weather" className="navbar-brand" src={props.theme === true ? require("./logo_transparent.png") : require("./logo_dark.png")} onClick={() => props.history.push('/')}/>

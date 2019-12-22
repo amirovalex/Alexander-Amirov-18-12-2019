@@ -24,7 +24,7 @@ export const Favorites = (props) => {
   const { addToast } = useToasts();
 
   useEffect(() => {props.favorites.map((city,i) => {
-		fetch(`http://dataservice.accuweather.com/currentconditions/v1/${city.CityKey}?apikey=${apiKey}`)
+		fetch(`https://dataservice.accuweather.com/currentconditions/v1/${city.CityKey}?apikey=${apiKey}`)
 		.then(handleErrors)
 		.then(response => response.json())
 		.then(res => props.fetchFavorites({Weather:res[0],CityName:city.CityName,CityKey:city.CityKey}))
