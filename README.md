@@ -1,6 +1,8 @@
 Sasha Amirov project
 
-###Open in http:// in order to get the accuweather api working,geolocation not working on http:// so you can check it on offline or https://
+http://weathernow1.herokuapp.com/
+
+pen in http:// in order to get the accuweather api working,geolocation not working on http:// so you can check it on offline or https://
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
